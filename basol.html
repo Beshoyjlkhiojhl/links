@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Storage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+  </style>
+    <div class="container">
+        <h1>Link Storage</h1>
+        <form id="linkForm">
+            <input type="text" id="linkTitle" placeholder="Link Title" required>
+            <input type="url" id="linkUrl" placeholder="Link URL" required>
+            <button type="submit">Add Link</button>
+        </form>
+        <ul id="linksList"></ul>
+        <p>&copy Beshoy Ashraf</p>
+    </div>
+    <script>
+      document.getElementById('linkForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const linkTitle = document.getElementById('linkTitle').value;
+    const linkUrl = document.getElementById('linkUrl').value;
+
+    const linkList = document.getElementById('linksList');
+
+    const listItem = document.createElement('li');
+    const link = document.createElement('a');
+    link.textContent = linkTitle;
+    link.href = linkUrl;
+    link.target = "_blank";
+
+    listItem.appendChild(link);
+    linkList.appendChild(listItem);
+
+    document.getElementById('linkForm').reset();
+});
+
+    </script>
+</body>
+</html>
